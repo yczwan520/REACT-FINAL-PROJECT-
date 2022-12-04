@@ -1,0 +1,9 @@
+.events_container {
+  display: flex;
+}
+.list {
+  flex: 5;
+}
+.calendar {
+  flex: 3;
+}

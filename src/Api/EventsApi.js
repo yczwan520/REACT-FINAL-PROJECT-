@@ -7,11 +7,3 @@ export const EventsPage = async () => {
   console.log(data);
   return data;
 };
-
-export const HostsPage = async () => {
-  const { Hosts } = await axios.get(
-    `https://601caf791a9c220017060c02.mockapi.io/api/v1/Hosts/ `
-  );
-  console.log(Hosts);
-  return Hosts;
-};

@@ -10,12 +10,13 @@ import "./PageLayout.css";
 import Events from "./Events/EventsPage";
 import Profile from "./Profile/Profile";
 import { Layout, Menu } from "antd";
-import { Outlet, Link } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import { Outlet, Link, Routes, Route } from "react-router-dom";
 import EventDetail from "./Events/EventDetail/EventsDetail";
 const { Header, Sider, Content } = Layout;
-const PageLayout = ({ data }) => {
+const PageLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
+  const data = props.data;
+  const host = props.host;
   return (
     <div className="container">
       <Layout>
@@ -63,11 +64,11 @@ const PageLayout = ({ data }) => {
             }}
           >
             <Routes>
-              <Route path="/" element={<Events />} />
+              <Route path="/" element={<Events data={data} host={host} />} />
               <Route path="/profile" element={<Profile />} />
               <Route
                 path="/events/:eventId"
-                element={<EventDetail data={data} />}
+                element={<EventDetail data={data} host={host} />}
               />
             </Routes>
           </Content>
